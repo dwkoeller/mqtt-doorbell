@@ -16,7 +16,7 @@ const char compile_date[] = __DATE__ " " __TIME__;
 #define BELL_UPDATE_INTERVAL_MS 250
 #define BELL_DELAY_MS 500
 #define UPDATE_SERVER "http://192.168.100.15/firmware/"
-#define FIRMWARE_VERSION "-1.00"
+#define FIRMWARE_VERSION "-1.01"
 
 /****************************** MQTT TOPICS (change these topics as you wish)  ***************************************/
 #define MQTT_HEARTBEAT_SUB "heartbeat/#"
@@ -219,9 +219,9 @@ void updateBinarySensor(String sensor, String state) {
 
 void ringBell() {
   if (bellEnabled) {
-    digitalWrite(RELAY_PIN, LOW);
-    delay(500);
     digitalWrite(RELAY_PIN, HIGH);
+    delay(500);
+    digitalWrite(RELAY_PIN, LOW);
   }
 }
 
